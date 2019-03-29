@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Colorsquare</title>
+  <script>
+    function dessiner(){
+      var rows = document.querySelector('#rows').value;
+      var cols = document.querySelector('#cols').value;
+      var ecran = document.querySelector('#ecran');
+      ecran.innerHTML = makeTable(rows, cols);
+    }
+
+    function makeTable(r, c){
+      var table = "<table border='1'>";
+        for(var i=0; i<r; i++){
+          table += "<tr>";
+            for(var j=0; j<c; j++){
+              table += "<td onmouseover='this.style.backgroundColor=\"turquoise\"'></td>";
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        return table;
+    }
+  </script>
+  <style>
+    input {
+      text-align: right;
+    }
+    #ecran td {
+      width: 10px;
+      height: 10px;
+    }
+
+  </style>
+</head>
+<body>
+Rows : <input type="text" id="rows" value="10"><br>
+Cols : <input type="text" id="cols" value="10"><br>
+<button onclick="dessiner()">Dessiner</button>
+<div id="ecran"></div>
+<div id="palette">
+<table>
+  <tr>
+    <td style="background: turquoise" onclick="color=blue"> </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
